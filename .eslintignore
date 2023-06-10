@@ -1,0 +1,9 @@
+**/__tests__
+**/__snapshots__
+coverage
+node_modules
+@types
+.husky
+package-lock.json
+build
+yarn.lock

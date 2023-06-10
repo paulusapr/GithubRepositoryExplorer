@@ -1,0 +1,4 @@
+node_modules
+@types
+**/__tests__
+**/__snapshots__
