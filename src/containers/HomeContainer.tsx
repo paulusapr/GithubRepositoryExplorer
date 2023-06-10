@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Button, List, ListType, ChildType, useLayoutContext } from 'components';
+import { Button, List, ListType, useLayoutContext } from 'components';
 import { get } from 'utils/client';
 
 export const HomeContainer = () => {
   const { search } = useLayoutContext();
+  const [loading, setLoading] = useState<boolean>(true);
   const [isSearch, setIsSearch] = useState<boolean>(false);
   const [list, setList] = useState<ListType[]>([]);
 
   const getList = async () => {
+    setLoading(true);
     await get(`${process.env.REACT_APP_GITHUB_API}`, undefined, { Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}` }).then((res: any) => {
       if (res && res.data) {
         let thisList: any[] = [];
@@ -35,7 +37,7 @@ export const HomeContainer = () => {
         }
         setList(thisList);
       }
-      return;
+      setLoading(false);
     }).catch(() => {
       return;
     })
@@ -54,8 +56,8 @@ export const HomeContainer = () => {
     <div className='flex flex-col w-full gap-2'>
       <Button onClick={onClick} />
       {isSearch && search && <span className='text-black-0 my-2'>Showing {'"'}{search}{'"'} repository</span>}
-      <div className='flex gap-2 flex-col w-full'>
-        <List list={list} />
+      <div className='flex gap-2 flex-col items-center w-full'>
+        {!loading ? <List list={list} /> : 'Loading...'}
       </div>
     </div>
   );
