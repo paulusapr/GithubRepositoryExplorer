@@ -27,8 +27,14 @@ Web App to explore github account repository
     ```
     yarn start
     ```
-    
-5. Open browser with the following url 
+
+5. Add GITHUB API Env like .env.example as an example
+
+    ```
+    create new file .env / .env.local
+    ```
+
+6. Open browser with the following url 
 
     http://localhost:3000
 
