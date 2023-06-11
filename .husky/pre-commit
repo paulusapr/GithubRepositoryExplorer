@@ -2,6 +2,13 @@
 . "$(dirname "$0")/_/husky.sh"
 echo '🏗️👷 Styling, testing and building your project before committing'
 
+yarn test ||
+{
+    echo '🙈👷🔨❌ Yoo, there is still error on your components. Check code 🙈👷🔨❌
+          Run yarn test, add changes and try commit again.';
+    false;
+}
+
 # Check ESLint Standards
 yarn lint ||
 (
