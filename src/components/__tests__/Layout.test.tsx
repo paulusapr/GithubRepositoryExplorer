@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { Layout, SearchBox } from 'components';
+import { Layout } from 'components';
 import renderer from 'react-test-renderer';
 
 describe('Layout test', () => {
