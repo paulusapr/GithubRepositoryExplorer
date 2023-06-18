@@ -13,10 +13,11 @@ export const get = <T = any, D = unknown>(
   params?: D,
   headers?: Headers,
 ) => {
-  const thisUrl = new URL(url);
+  let thisUrl = url;
   if (params) {
+    thisUrl += '?';
     Object.keys(params).forEach((name: string) => {
-      thisUrl.searchParams.set(name, (params[name as keyof typeof params] || '').toString());
+      thisUrl += `&${name}=${params[name as keyof typeof params] || ''}`
     });
   }
 
