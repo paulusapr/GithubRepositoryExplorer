@@ -21,7 +21,7 @@ export const get = <T = any, D = unknown>(
     });
   }
 
-  return axios.get<T, AxiosResponse<T>, D>(thisUrl.href, {
+  return axios.get<T, AxiosResponse<T>, D>(thisUrl, {
     headers: structuredClone({ ...defaultHeaders, ...headers }),
     params,
   });
