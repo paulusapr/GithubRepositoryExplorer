@@ -29,7 +29,10 @@ export const HomeContainer = () => {
                 subTitle: data.description,
                 rating: data.stargazers_count,
               }],
-            })
+            });
+          }
+          if (thisList[findIdx]?.child) {
+            thisList[findIdx].child = thisList[findIdx].child.sort((a: any, b: any) => b.rating - a.rating).slice(0, 5);
           }
         });
         if (search) {
