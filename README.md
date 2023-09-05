@@ -1,5 +1,4 @@
-# Demo
-Demo[https://github-repository-explorer-mocha.vercel.app/]
+[https://github-repository-explorer-mocha.vercel.app/]Demo
 
 # GithubRepositoryExplorer
 
